@@ -2,15 +2,13 @@ from gtts import gTTS
 from playsound import playsound
 
 
-name = input('Jak masz na imie? ')
-lname = input('Jak masz na nazwisko: ')
-pelnyTekst = name + ' ' + lname
-print(pelnyTekst)
+name = input('Nadaj nazwe tekstu? ')
+tekst = input('Wpisz tekst, ktory program ma wypowiedziec: ')
+#pelnyTekst = name + ' ' + tekst
 
 
-texttospeach = gTTS(text=pelnyTekst, lang='pl')
+texttospeach = gTTS(text=tekst, lang='pl')
 
-pelnyTekst = name
 
 texttospeach.save(name + '.mp3')
 playsound(name+'.mp3')
