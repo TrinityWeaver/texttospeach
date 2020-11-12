@@ -1,16 +1,14 @@
 from gtts import gTTS
 from playsound import playsound
+# Install appkit llb - pip3 install -U PyObjC
+
+name = input('Nadaj nazwe tekstu? ')
+tekst = input('Wpisz tekst, ktory program ma wypowiedziec: ')
+#pelnyTekst = name + ' ' + tekst
 
 
-name = input('Jak masz na imie? ')
-lname = input('Jak masz na nazwisko: ')
-pelnyTekst = name + ' ' + lname
-print(pelnyTekst)
+texttospeach = gTTS(text=tekst, lang='pl')
 
-
-texttospeach = gTTS(text=pelnyTekst, lang='pl')
-
-pelnyTekst = name
 
 texttospeach.save(name + '.mp3')
 playsound(name+'.mp3')
