@@ -7,11 +7,18 @@ import os
 
 # Provide name for the file and text to speach
 
+
+
+
+
+# Inputs from user
+
 name = input('Nadaj nazwe tekstu? ')
 tekst = input('Wpisz tekst, ktory program ma wypowiedziec: ')
 
 
 # Modul gTTS, provide service Text to Speach
+
 # Text to Speach conversion
 # Save file to mp3 format
 
@@ -22,6 +29,7 @@ texttospeach.save(name + '.mp3')
 # Modul playsound play sound
 
 playsound(name+'.mp3')
+
 
 
 # if else statement Checks for folder "mp3", if exist it moves file there, if not it's creates folder and puts file in this folder
