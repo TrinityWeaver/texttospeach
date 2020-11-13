@@ -30,4 +30,3 @@ else:
     os.mkdir('./mp3/')
     os.rename('./' + name+'.mp3',
               './mp3/' + name + '.mp.3')
-# Koniec
