@@ -45,4 +45,5 @@ else:
 # Choose Language
 # GUI
 # Utilize time stamps
-# Zeby cytowal wiersze z jakiegos url
+# Read out some poem
+# Deploy as an App
