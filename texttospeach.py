@@ -44,3 +44,4 @@ else:
 # Ask user if he wants to save result
 # Choose Language
 # GUI
+# Utilize time stamps
