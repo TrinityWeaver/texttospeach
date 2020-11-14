@@ -30,11 +30,15 @@ while name != 'Stop':
         texttospeach = gTTS(text=tekst, lang=Lang)
         texttospeach.save(name + '.mp3')
         playsound(name + '.mp3')
-        if os.path.isdir('./mp3') == True:
-            os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+        saveFile = input('Would you like save it as a mp3?\n(Yes or No): ')
+        if saveFile == 'Yes':
+            if os.path.isdir('./mp3') == True:
+                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+            else:
+                os.mkdir('./mp3/')
+                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
         else:
-            os.mkdir('./mp3/')
-            os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+            os.remove('./' + name + '.mp3')
     else:
         name = input('Nadaj nazwe tekstu? (Stop by zatrzymac program): ')
         tekst = input(
@@ -43,20 +47,26 @@ while name != 'Stop':
         texttospeach = gTTS(text=tekst, lang=Lang)
         texttospeach.save(name + '.mp3')
         playsound(name + '.mp3')
-        if os.path.isdir('./mp3') == True:
-            os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+        saveFile = input(
+            'Czy chcialbys zapisac do pliku mp3?\n(Tak lub Nie): ')
+        if saveFile == 'Tak':
+            if os.path.isdir('./mp3') == True:
+                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+            else:
+                os.mkdir('./mp3/')
+                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
         else:
-            os.mkdir('./mp3/')
-            os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+            os.remove('./' + name + '.mp3')
 print('You left program')
 
 
 # If file exists ask for overwrite
-# Ask user if he wants to save result
-# Choose Language with '/n'. Implemented choice of english and Polish already.
+# Done - Ask user if he wants to save result
+# Done - Choose Language with '/n'. Implemented choice of english and Polish already.
 # GUI
 # Utilize time stamps
 # Read out some poem
 # Deploy as an App
-# Loop through a program
+# Done- While loop is done -Loop through a program
 # Polish letter does not recognize when mp3 file is named with it
+# Change "Stop"
