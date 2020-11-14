@@ -45,3 +45,4 @@ else:
 # Choose Language
 # GUI
 # Utilize time stamps
+# Zeby cytowal wiersze z jakiegos url
