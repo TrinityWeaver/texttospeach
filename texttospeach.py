@@ -19,7 +19,7 @@ tekst = input('Wpisz tekst, ktory program ma wypowiedziec: ')
 # Text to Speach conversion
 # Save file to mp3 format
 
-texttospeach = gTTS(text=tekst, lang='en')
+texttospeach = gTTS(text=tekst, lang='pl')
 texttospeach.save(name + '.mp3')
 
 
