@@ -62,4 +62,3 @@ print('You left program')
 # Deploy as an App
 # Done- While loop is done -Loop through a program
 # Polish letter does not recognize when mp3 file is named with it
-# Change "Stop"
