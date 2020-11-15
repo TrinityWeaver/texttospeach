@@ -8,8 +8,8 @@ import os
 # Language choice
 
 language = int(input(
-    'Choose your language:\nFor English choose 1 \nFor Polish choose number 2 \nChoose now: '))
-name = 'Start'
+    'Choose your language:\nFor English choose 1 \nFor Polish choose 2 \nChoose now: '))
+execute = 'Start'
 
 
 # While loop covers:
@@ -21,42 +21,35 @@ name = 'Start'
 # if else statement Checks for folder "mp3", if exist it moves file there, if not it's creates folder and puts file in this folder
 
 
-while name != 'Stop':
+while execute != 'Stop':
     if language == 1:
-        name = input('Give a name for text (Type in a name "Stop" to close): ')
+        name = input('Give a name for text: ')
         tekst = input(
             'Provide text for text to speach: ')
         Lang = 'en'
         texttospeach = gTTS(text=tekst, lang=Lang)
         texttospeach.save(name + '.mp3')
         playsound(name + '.mp3')
-        saveFile = input('Would you like save it as a mp3?\n(Yes or No): ')
-        if saveFile == 'Yes':
-            if os.path.isdir('./mp3') == True:
-                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
-            else:
-                os.mkdir('./mp3/')
-                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
-        else:
-            os.remove('./' + name + '.mp3')
     else:
-        name = input('Nadaj nazwe tekstu? (Stop by zatrzymac program): ')
+        name = input('Nadaj nazwe tekstu?: ')
         tekst = input(
             'Wpisz tekst, ktory program ma wypowiedziec: ')
         Lang = 'pl'
         texttospeach = gTTS(text=tekst, lang=Lang)
         texttospeach.save(name + '.mp3')
         playsound(name + '.mp3')
-        saveFile = input(
-            'Czy chcialbys zapisac do pliku mp3?\n(Tak lub Nie): ')
-        if saveFile == 'Tak':
-            if os.path.isdir('./mp3') == True:
-                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
-            else:
-                os.mkdir('./mp3/')
-                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+    saveFile = input(
+        'Would you like save it as a mp3?\nCzy chcesz zapisac plik?\n(Yes or No): ')
+    if saveFile == 'Yes':
+        if os.path.isdir('./mp3') == True:
+            os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
         else:
-            os.remove('./' + name + '.mp3')
+            os.mkdir('./mp3/')
+            os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+    else:
+        os.remove('./' + name + '.mp3')
+    execute = input(
+        'If you want to quit type in "Stop" if continue "Start": \nCzy chcesz zakonczyc program? Wpisz "Stop" by wyjsc, lub "Start" by kontynuowac: ')
 print('You left program')
 
 
