@@ -30,6 +30,18 @@ while execute != 'Stop':
         texttospeach = gTTS(text=tekst, lang=Lang)
         texttospeach.save(name + '.mp3')
         playsound(name + '.mp3')
+        saveFile = input('Would you like save it as a mp3?\n(Y or N): ')
+        if saveFile == 'Y':
+            if os.path.isdir('./mp3') == True:
+                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+            else:
+                os.mkdir('./mp3/')
+                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+        else:
+            os.remove('./' + name + '.mp3')
+        execute = input(
+            'If you want to quit\nType in "Stop" if continue "Start": ')
+        print('You left program')
     else:
         name = input('Nadaj nazwe tekstu?: ')
         tekst = input(
@@ -38,27 +50,23 @@ while execute != 'Stop':
         texttospeach = gTTS(text=tekst, lang=Lang)
         texttospeach.save(name + '.mp3')
         playsound(name + '.mp3')
-    saveFile = input(
-        'Would you like save it as a mp3?\nCzy chcesz zapisac plik?\n(Yes or No): ')
-    if saveFile == 'Yes':
-        if os.path.isdir('./mp3') == True:
-            os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+        saveFile = input('Czy chcesz zapisac plik?\n(T or N): ')
+        if saveFile == 'T':
+            if os.path.isdir('./mp3') == True:
+                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
+            else:
+                os.mkdir('./mp3/')
+                os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
         else:
-            os.mkdir('./mp3/')
-            os.rename('./' + name+'.mp3', './mp3/' + name + '.mp3')
-    else:
-        os.remove('./' + name + '.mp3')
-    execute = input(
-        'If you want to quit type in "Stop" if continue "Start": \nCzy chcesz zakonczyc program? Wpisz "Stop" by wyjsc, lub "Start" by kontynuowac: ')
-print('You left program')
+            os.remove('./' + name + '.mp3')
+        execute = input(
+            'Czy chcesz zakonczyc program?\nWpisz "Stop" by zakonczyc, jesli kontynuowac wpisz "Start": ')
+        print('Opusciles Program')
 
 
 # If file exists ask for overwrite
-# Done - Ask user if he wants to save result
-# Done - Choose Language with '/n'. Implemented choice of english and Polish already.
 # GUI
 # Utilize time stamps
-# Read out some poem
+# Read out some poem - This might require to build web scrapper
 # Deploy as an App
-# Done- While loop is done -Loop through a program
 # Polish letter does not recognize when mp3 file is named with it
