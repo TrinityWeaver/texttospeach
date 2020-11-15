@@ -24,6 +24,11 @@ execute = 'Start'
 while execute != 'Stop':
     if language == 1:
         name = input('Give a name for text: ')
+        if os.path.exists('./mp3/' + name + '.mp3') == True:
+            overWrite = input(
+                'This file name exist, would you like to overwrite?\nY or N?: ')
+            if overWrite == 'N':
+                continue
         tekst = input(
             'Provide text for text to speach: ')
         Lang = 'en'
@@ -41,9 +46,15 @@ while execute != 'Stop':
             os.remove('./' + name + '.mp3')
         execute = input(
             'If you want to quit\nType in "Stop" if continue "Start": ')
-        print('You left program')
+        if execute == 'Stop':
+            print('You left program')
     else:
         name = input('Nadaj nazwe tekstu?: ')
+        if os.path.exists('./mp3/' + name + '.mp3') == True:
+            overWrite = input(
+                'Taki plik juz istnieje, czy chcesz nadpisac?\nT or N?: ')
+            if overWrite == 'N':
+                continue
         tekst = input(
             'Wpisz tekst, ktory program ma wypowiedziec: ')
         Lang = 'pl'
@@ -61,10 +72,10 @@ while execute != 'Stop':
             os.remove('./' + name + '.mp3')
         execute = input(
             'Czy chcesz zakonczyc program?\nWpisz "Stop" by zakonczyc, jesli kontynuowac wpisz "Start": ')
-        print('Opusciles Program')
+        if execute == 'Stop':
+            print('Opusciles Program')
 
 
-# If file exists ask for overwrite
 # GUI
 # Utilize time stamps
 # Read out some poem - This might require to build web scrapper
